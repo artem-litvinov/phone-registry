@@ -1,0 +1,17 @@
+<form method="post">
+    {% csrf_token %}
+    +7 ({{ form.code }}) {{ form.number }}
+    <input type="submit" value="Find">
+</form>
+
+{% if phone_info %}
+    Your Phone is +7 ({{ phone_info.code }}) {{ phone_info.number }}
+    </br>
+    Region: {{ phone_info.region }}
+    </br>
+    Operator: {{ phone_info.operator }}
+{% endif %}
+
+{% if no_such_phone %}
+    Sorry, we couldn't find any info on that phone number
+{% endif %}
